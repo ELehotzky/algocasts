@@ -17,6 +17,8 @@
 //       '### '
 //       '####'
 
+// O(n^2) (quadratic runtime)
+
 function steps(n, row = 0, stair = "") {
 	if (n === row) {
 		return;
