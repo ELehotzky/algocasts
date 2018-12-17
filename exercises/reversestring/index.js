@@ -6,6 +6,8 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
+// O(n) (linear) runtime
+
 function reverse(str) {
 	return str.split("").reduce((rstr, char) => {
 		return char + rstr;
