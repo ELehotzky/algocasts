@@ -8,13 +8,31 @@
 // Example:
 //   fib(4) === 3
 
-// Recursive solution - 
+// Recursive solution - O(2^n), exponential run time;
+// Can improve with memoization - store the argument/result of each function call
+// and if the arg is called again, return the result from memory rather than re-running the argument.
+
+function memoize(fn) {
+	const cache = {};
+	return function(...args) {
+		// if the function has been run on this arg before, return the result
+		if (cache[args]) {
+			return cache[args];
+		}
+		const result = fn.apply(this, args);
+		cache[args] = result;
+		return result;
+	}
+}
+
 function fib(n) {
 	if (n < 2) {
 		return n;
 	} 
 	return fib(n - 1) + fib(n - 2);
 }
+
+fib = memoize(fib);
 
 module.exports = fib;
 
